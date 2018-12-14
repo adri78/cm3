@@ -2,6 +2,19 @@
 
 <?php include_once 'php/cabe.php'; ?>
 
+<style>
+    #nav-search-input:focus{
+        background: rgba(40, 230, 84, 0.7);
+        text-align: center;
+    }
+    .page-content {
+        padding-right: 1px !important;
+        padding-left: 1px !important;
+    }
+
+</style>
+
+
 </head>
 
 <body class="no-skin">
@@ -20,21 +33,25 @@
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
+							<li class="btn btn-info btn-lg" id="BTNNuevo" title=" F1 - Nuevos equipos" onclick="MostrarFormulario();">
+                                &nbsp;
+								<i class="ace-icon glyphicon glyphicon-check"></i>
+                                &nbsp; NUEVO &nbsp;&nbsp;&nbsp;
 							</li>
 
-							<li>
-								<a href="#">Other Pages</a>
+							<li class="btn btn-warning btn-lg" id="BTNNuevo" title=" F2 - Repuestos" onclick="ML();">
+                                &nbsp;
+                                <i class="ace-icon fa fa-gavel"></i>
+                                &nbsp; Repuestos &nbsp;&nbsp;&nbsp;
 							</li>
-							<li class="active">Blank Page</li>
+							<li class="btn btn-default btn-lg" onclick="barraBusca()"> F3 - Buscar</li>
+                            <li class="btn btn-success btn-lg" onclick="exportTableToExcel('LART')"> <i class="ace-icon fa fa-desktop"></i> EXCEL</li>
 						</ul><!-- /.breadcrumb -->
 
-						<div class="nav-search" id="nav-search">
+						<div class="nav-search" id="nav-search" >
 							<form class="form-search">
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="text" placeholder="Buscar ..." class="nav-search-input" id="nav-search-input" autocomplete="off"  style="width: 252px;" />
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
 							</form>
@@ -42,76 +59,17 @@
 					</div>
 
 					<div class="page-content">
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
 
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; Choose Skin</span>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
-										</label>
-									</div>
-								</div><!-- /.pull-left -->
-
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-									</div>
-
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-									</div>
-								</div><!-- /.pull-left -->
-							</div><!-- /.ace-settings-box -->
-						</div><!-- /.ace-settings-container -->
+<?php // include 'php/Barra_Derecha.php' ;   // Barra lateral derecha ?>
 
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
+
+
+<?php include 'job/TRepara.php'; ?>
+
+
 
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -125,6 +83,14 @@
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>
+
+
+<?php include 'job/Presupuestos.php' ; ?>
+
+
+
+
+
 		</div><!-- /.main-container -->
 
 		<!-- basic scripts -->
@@ -144,20 +110,81 @@
 
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
-
-
+        <script src="assets/js/zelect.js"></script>
+        <script src="assets/js/Reparar.js"></script>
+        <script src="assets/js/ToExcel.js"></script>
 <script>
+    var MostarFormu=0;
+
+    function MostrarFormulario() {
+        if(MostarFormu == 0){
+            document.getElementById('Formulario').style.display='inline-block';
+            document.getElementById('ListaArt').style.width = '66%';
+            MostarFormu=1;
+            document.getElementById('Cliente').focus();
+        }else{
+            document.getElementById('Formulario').style.display='none';
+            document.getElementById('ListaArt').style.width = '100%';
+            MostarFormu=0;
+            document.getElementById('nav-search').focus();
+        }
+    }
+
+    function barraBusca() {
+        document.getElementById('nav-search-input').focus();
+    }
+
+    function ML() {
+        document.getElementById('PreRes').classList.toggle("control-sidebar");
+        document.getElementById('PreRes').classList.toggle("NV");
+        document.querySelector('.zearch').focus();
+    }
+
+  jQuery('#intro select').zelect({ placeholder:'Equipo ' });
+
+
     (function(){
-        const OBI=document.getElementById('OBI').addEventListener('click',function () {
-            let sidebar= document.getElementById('sidebar').getAttribute('display');
-            if(sidebar.display == 'block'){
-                sidebar.display ='none';
-            }
+
+
+        const OBI=document.getElementById('OBI').addEventListener('click',function () { //reduce barra
+             document.getElementById('sidebar-toggle-icon').click();
+        });
+
+        let TheKey = document.addEventListener("keydown",function (e) {
+
+            var charCode = (e.which) ? e.which : e.keyCode;
+            if (charCode == 112){
+                e.preventDefault();
+                MostrarFormulario();
+            } // F1
+            if (charCode == 113){
+                e.preventDefault();
+                ML();
+            } // F2
+            if (charCode == 114){
+                e.preventDefault();
+                barraBusca()
+            } // F3
+
         });
 
 
 
-
+        jQuery.extend(jQuery.expr[":"],
+            {
+                "contiene-palabra": function (elem, i, match, array) {
+                    return (elem.textContent || elem.innerText || jQuery(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            });
+        let thebus=document.getElementById('nav-search-input').addEventListener("keyup",function (e) {
+             let txt = document.getElementById('nav-search-input').value.toUpperCase(); ;
+             if(txt !=""){
+                 jQuery("#LART tbody>tr").hide();
+                 jQuery("#LART td:contiene-palabra('" + txt + "')").parent("tr").show();
+             }else{
+                 jQuery("#LART tbody>tr").show();
+             }
+        });
 
     })();
 </script>

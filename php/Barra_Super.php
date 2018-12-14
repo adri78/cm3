@@ -17,26 +17,32 @@
             <a href="index.html" class="navbar-brand">
                 <small>
                     <i class="ace-icon glyphicon glyphicon-edit"></i>
-                    CM V3 -
+                    CM V3-
                 </small>
                 <?php
+                    if($Nivel >3 ){
+                        // Aca Lista los locales;
 
-                if($Nivel >3 ){
-                    // Aca Lista los locales;
-
-                }else{
-                    echo  $Lugar;
-                }
+                    }else{
+                        echo $Lugar;
+                    }
                 ?>
 
             </a>
         </div>
 
         <!-- ************************************************************************* -->
+        <style>
+            @media only screen and (max-width: 991px) {
+                #BarraOculta {
+                    display: none;
+                }
+            }
 
+        </style>
 
-        <ul class="nav navbar-nav  in">
-            <li><a id="OBI"><i class="ace-icon glyphicon glyphicon-backward"></i>&nbsp;&nbsp;</a></li>
+        <ul class="nav navbar-nav in" id="BarraOculta">
+            <li><a id="OBI"><i class="ace-icon glyphicon glyphicon-backward"></i></a></li>
 
 
             <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"> WEB <i class="fa fa-caret-down"></i></a>
